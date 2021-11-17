@@ -19,7 +19,7 @@ Lisbela e o Prisioneiro - 20:00 - Hoje<br/>
 Meu nome não é Jhonny - 21:00 - Amanhã<br/>
 O Cheiro do ralo - 15:00 - Amanhã<br/>
 
-5 - Crie um link para cada cidade na página inicial para<br/>
+5 - Crie um link para cada cidade na página inicial<br/>
 5.1 - O link deve estar dentro de um título de nível 2.<br/>
 
 6 - Crie um arquivo de estilo dentro de um diretório chamado css.<br/>

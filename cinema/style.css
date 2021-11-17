@@ -1,0 +1,27 @@
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+.green {
+  color: green;
+  text-decoration: none;
+}
+
+p {
+  font-size: 24px;
+}
+
+.titulo {
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.hoje {
+  color: brown;
+}
+
+.amanha {
+  color: blue;
+}

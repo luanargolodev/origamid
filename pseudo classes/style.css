@@ -61,3 +61,52 @@ a:active {
 h2:not(.contato) {
   text-decoration: underline;
 }
+
+/* Pseudo Elements */
+h1 {
+  position: relative;
+}
+
+/* depois do h1 */
+h1::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 4px;
+  background: #caf;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 1.5rem;
+}
+
+.personalizada li {
+  display: flex;
+  align-items: center;
+}
+
+.personalizada li::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(#caf, #fff);
+  border: 2px solid #caf;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* cresce o tamanho da primeira letra e pinta de azul */
+p::first-letter {
+  font-size: 2rem;
+  color: blue;
+}
+
+/* pinta a primeira linha de negrito */
+p::first-line {
+  font-weight: bold;
+}

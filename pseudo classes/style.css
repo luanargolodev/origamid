@@ -28,3 +28,36 @@ a:active {
   background: #fda;
   color: #731;
 } */
+
+/* apenas o primeiro elemento de li */
+.lista-1 li:first-child {
+  background: #cfa;
+}
+
+/* apenas o último elemento de li */
+.lista-1 li:last-child {
+  background: #cfa;
+}
+
+/* apenas o terceiro elemento de li */
+.lista-1 li:nth-child(3) {
+  background: #cfa;
+}
+
+/* apenas os elementos pares
+  even = pares
+  odd = ímpares
+*/
+.lista-2 li:nth-child(even) {
+  background: #cfa;
+}
+
+/* todos menos first-child e last-child */
+.lista-3 li:not(:first-child, :last-child) {
+  background: #caf;
+}
+
+/* todos h2's dentro de section, menos o que tiver a classe .contato */
+h2:not(.contato) {
+  text-decoration: underline;
+}

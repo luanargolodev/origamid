@@ -55,10 +55,11 @@ p {
   padding: 1rem 2rem;
   border-radius: 4px;
   color: #000;
+  border: 2px solid #fff;
 }
 
 .menu a:hover {
-  background: #ee2211;
+  border-color: #e21;
 }
 
 .conteudo {
@@ -82,7 +83,8 @@ p {
   font-size: 2rem;
 }
 
-.detalhe {
+.introducao::before {
+  content: "";
   width: 60px;
   height: 4px;
   background: #e21;
@@ -99,6 +101,10 @@ p {
   text-transform: uppercase;
 }
 
+.botao:hover {
+  background: #900;
+}
+
 .subtitulo {
   font-size: 4rem;
   text-transform: uppercase;
@@ -106,6 +112,7 @@ p {
   text-align: right;
   padding: 40px;
   align-self: center;
+  background-image: url(./imgs/onda.svg);
 }
 
 .vantagens {
@@ -118,6 +125,16 @@ p {
   grid-template-columns: auto 1fr;
   gap: 10px 20px;
   padding: 20px;
+  border-left: 4px solid transparent;
+}
+
+/* Pintando os elementos ímpares com o background #f7f7f7 */
+.vantagens-item:nth-child(odd) {
+  background: #f7f7f7;
+}
+
+.vantagens-item:hover {
+  border-color: #e21;
 }
 
 .vantagens-item p {

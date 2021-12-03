@@ -71,3 +71,22 @@
   background: #fff;
   padding: 5px 10px;
 }
+
+@media (max-width: 800px) {
+  .projetos {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .projetos .subtitulo {
+    color: #141414;
+  }
+  .projetos-texto {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .projetos {
+    grid-template-columns: 1fr;
+  }
+}

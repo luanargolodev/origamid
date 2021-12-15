@@ -1,5 +1,7 @@
 body {
-  font-size: 2rem;
+  font-size: 1.2rem;
+  font-family: Arial;
+  background: var(--fundo);
 }
 
 .titulo {
@@ -21,4 +23,18 @@ body {
 
 .titulo.teste {
   color: blue;
+}
+
+:root {
+  --fundo: #fff;
+  --texto-1: #111;
+  --texto-2: #444;
+}
+
+h1 {
+  color: var(--texto-1);
+}
+
+p {
+  color: var(--texto-2);
 }

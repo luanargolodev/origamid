@@ -38,3 +38,24 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+section > h2 {
+  background: tomato;
+}
+
+p {
+  margin: 0;
+}
+
+article {
+  background: lightgreen;
+  padding: 10px;
+}
+
+p + p {
+  margin-top: 20px;
+}
+
+body {
+  color: blue;
+}

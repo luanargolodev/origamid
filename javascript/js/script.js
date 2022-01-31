@@ -13,6 +13,7 @@ if (minhaIdade > idadePrimo) {
 
 // Qual valor é retornado na seguinte expressão?
 var expressao = 5 - 2 && 5 - " " && 5 - 2;
+console.log(expressao); // 3 - Retorna o último verdadeiro
 
 // Verifique se as seguintes variáveis são Truthy ou Falsy
 var nome = "Andre";

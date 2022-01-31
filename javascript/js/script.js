@@ -1,4 +1,8 @@
-var jogo = "The Witcher 3";
-var frase = `${jogo} é o melhor jogo que já joguei`;
+var soma = 100 + 50;
+var substracao = 100 - 50;
+var multiplicacao = 100 * 2;
+var divisao = 100 / 2;
+var expoente = 2 ** 4;
+var modulo = 14 % 5;
 
-console.log(frase);
+// Lembrando que soma (+) em Strings serve para concatenar

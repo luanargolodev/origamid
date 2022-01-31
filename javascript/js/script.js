@@ -1,13 +1,14 @@
-// Funções
+// Parâmetros e Argumentos
 
-// Bloco de código que pode ser executado e reutilizado. Valores podem ser passados por uma função e a mesma retorna outro valor.
+// Ao criar uma função, você pode definir parâmetros
+// Ao executar uma função, você pode passar Argumentos
 
-function areaQuadrado(lado) {
-  return console.log(lado * lado);
+function imc(peso, altura) {
+  const imc = peso / altura ** 2;
+  return imc;
 }
 
-areaQuadrado(4);
-areaQuadrado(5);
-areaQuadrado(2);
+console.log(imc(90, 1.85));
+console.log(imc(130, 1.67));
 
-// Chamada de function declaration
+// Separar por vírgula cada parâmetro. Você pode definir mais de um parâmetro ou nenhuma também

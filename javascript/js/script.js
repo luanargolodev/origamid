@@ -1,25 +1,30 @@
-// Switch
+// Verifique se a sua idade é maior do que a de algum parente
+// Dependendo do resultado coloque no console 'É maior', 'É igual' ou 'É menor'
 
-// Com o witch você pode verificar se uma variável é igual à diferentes valores utilizando o case.
-// Caso ela seja igual, você pode fazer alguma coisa e utilizar a palavra chave break; para cancelar a continuação.
-// O valor de default ocorrerá caso nenhuma das anteriores seja verdadeira.
+// Qual valor é retornado na seguinte expressão?
+var expressao = 5 - 2 && 5 - " " && 5 - 2;
 
-var corFavorita = "Azul";
+// Verifique se as seguintes variáveis são Truthy ou Falsy
+var nome = "Andre";
+var idade = 28;
+var possuiDoutorado = false;
+var empregoFuturo;
+var dinheiroNaConta = 0;
 
-switch (corFavorita) {
-  case "Azul": {
-    console.log("Olhe para o Céu.");
-    break;
-  }
-  case "Vermelho": {
-    console.log("Olhe para as Rosas.");
-    break;
-  }
-  case "Amarelo": {
-    console.log("Olhe para o Sol.");
-    break;
-  }
-  default: {
-    console.log("Olhe para o Chão.");
-  }
+// Compare o total de habitantes do Brasil com China (valor em milhões)
+var brasil = 207;
+var china = 1340;
+
+// O que irá aparecer no console?
+if ("Gato" === "gato" && 5 > 2) {
+  console.log("Verdadeiro");
+} else {
+  console.log("Falso");
+}
+
+// O que irá aparecer no console?
+if ("Gato" === "gato" || 5 > 2) {
+  console.log("Gato" && "Cão");
+} else {
+  console.log("Falso");
 }

@@ -1,14 +1,13 @@
-// Parâmetros e Argumentos
+// Argumentos podem ser funções
 
-// Ao criar uma função, você pode definir parâmetros
-// Ao executar uma função, você pode passar Argumentos
+// Chamadas de Callback, geralmente são funções que ocorrem após algum evento
 
-function imc(peso, altura) {
-  const imc = peso / altura ** 2;
-  return imc;
-}
+addEventListener("click", function () {
+  console.log("clicou");
+});
 
-console.log(imc(90, 1.85));
-console.log(imc(130, 1.67));
+// A função possui dois argumentos
+// Primeira é a String 'click'
+// Segundo é uma função anônima
 
-// Separar por vírgula cada parâmetro. Você pode definir mais de um parâmetro ou nenhuma também
+// Funções anônimas são aquelas em que o nome da função não é definido, escritas como function () {} ou () => {}

@@ -1,13 +1,25 @@
-// Operadores Lógicos ||
+// Switch
 
-// || Compara se uma expressão ou outra é verdadeira
+// Com o witch você pode verificar se uma variável é igual à diferentes valores utilizando o case.
+// Caso ela seja igual, você pode fazer alguma coisa e utilizar a palavra chave break; para cancelar a continuação.
+// O valor de default ocorrerá caso nenhuma das anteriores seja verdadeira.
 
-true || true; // true
-true || false; // true
-false || true; // true
-"Gato" || "Cão"; // Gato
-5 - 5 || 5 + 5; // 10
-"Gato" || false; // Gato
-5 >= 5 || 3 < 6; // true
+var corFavorita = "Azul";
 
-// Retorna o primeiro valor true que encontrar
+switch (corFavorita) {
+  case "Azul": {
+    console.log("Olhe para o Céu.");
+    break;
+  }
+  case "Vermelho": {
+    console.log("Olhe para as Rosas.");
+    break;
+  }
+  case "Amarelo": {
+    console.log("Olhe para o Sol.");
+    break;
+  }
+  default: {
+    console.log("Olhe para o Chão.");
+  }
+}

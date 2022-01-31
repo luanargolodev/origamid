@@ -32,9 +32,17 @@ console.log(
 // Compare o total de habitantes do Brasil com China (valor em milhões)
 var brasil = 207;
 var china = 1340;
+if (brasil > china) {
+  console.log("O Brasil é maior que a China.");
+} else if (brasil == china) {
+  console.log("O Brasil é igual a China.");
+} else {
+  console.log("A China é maior que o Brasil.");
+}
 
 // O que irá aparecer no console?
 if ("Gato" === "gato" && 5 > 2) {
+  // Gato náo é igual a gato. Então = false
   console.log("Verdadeiro");
 } else {
   console.log("Falso");

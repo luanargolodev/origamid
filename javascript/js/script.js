@@ -50,7 +50,8 @@ if ("Gato" === "gato" && 5 > 2) {
 
 // O que irá aparecer no console?
 if ("Gato" === "gato" || 5 > 2) {
-  console.log("Gato" && "Cão");
+  // 5 > 2 = Verdadeiro
+  console.log("Gato" && "Cão"); // Se ambos for verdadeiro, aparece apenas a última verdadeira = Cão
 } else {
   console.log("Falso");
 }

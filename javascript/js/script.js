@@ -1,11 +1,7 @@
-// Operador Lógico de Negação
+// Operadores de comparação
 
-// Truthy
-if(!true) // false
-if(!1) // false
-if(!'') // true
-if(!undefined) // true
-if(!!' ') // true
-if(!!'') //false
-
-// Dica: você podê utilizar o !! para verificar se uma expressão é Truthy ou Falsy
+10 > 5; // true
+5 > 10; // false
+20 < 10; // false
+10 <= 10; // true
+10 >= 11; // false

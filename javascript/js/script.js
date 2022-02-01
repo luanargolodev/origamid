@@ -17,12 +17,12 @@
 // quando o evento 'scroll' ocorrer.
 
 // Corrija o erro abaixo
+var totalPaises = 193;
 function precisoVisitar(paisesVisitados) {
-  var totalPaises = 193;
   return `Ainda faltam ${totalPaises - paisesVisitados} países para visitar`;
 }
 function jaVisitei(paisesVisitados) {
   return `Já visitei ${paisesVisitados} do total de ${totalPaises} países`;
 }
-precisoVisitar(20);
-jaVisitei(20);
+console.log(precisoVisitar(20));
+console.log(jaVisitei(20));

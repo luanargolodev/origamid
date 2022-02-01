@@ -1,17 +1,19 @@
-// Valores retornados
+// Escopo Léxico
 
-// Uma função pode retornar qualquer tipo de dado e até outras funções
+// Funções conseguem acessar variáveis que foram criadas no contexto pai
 
-function terceiraIdade(idade) {
-  if (typeof idade !== "number") {
-    return "Informe a sua idade!";
-  } else if (idade >= 60) {
-    return true;
-  } else {
-    return false;
+var profissao = "Programador";
+
+function dados() {
+  var nome = "Luan";
+  var idade = 23;
+  function outroDados() {
+    var endereco = "Ilhéus";
+    var idade = 23;
+    return `${nome}, ${idade}, ${endereco}, ${profissao}`;
   }
+  return outroDados();
 }
 
-// Cuidado, retonar diferentes tipos de dados na mesma função não é uma boa ideia
-
-console.log(terceiraIdade("60"));
+console.log(dados()); // Retorna 'Luan, 23, Ilhéus, Programador
+// outroDados(); // Retorna um erro

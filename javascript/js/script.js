@@ -1,13 +1,17 @@
-// Argumentos podem ser funções
+// Valores retornados
 
-// Chamadas de Callback, geralmente são funções que ocorrem após algum evento
+// Uma função pode retornar qualquer tipo de dado e até outras funções
 
-addEventListener("click", function () {
-  console.log("clicou");
-});
+function terceiraIdade(idade) {
+  if (typeof idade !== "number") {
+    return "Informe a sua idade!";
+  } else if (idade >= 60) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
-// A função possui dois argumentos
-// Primeira é a String 'click'
-// Segundo é uma função anônima
+// Cuidado, retonar diferentes tipos de dados na mesma função não é uma boa ideia
 
-// Funções anônimas são aquelas em que o nome da função não é definido, escritas como function () {} ou () => {}
+console.log(terceiraIdade("60"));

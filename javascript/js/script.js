@@ -15,10 +15,10 @@ console.log(pessoa.possuiFaculdade); // true
 
 var quadrado = {
   lados: 4,
-  area: function (lado) {
+  area(lado) {
     return lado * lado;
   },
-  perimetro: function (lado) {
+  perimetro(lado) {
     return this.lados * lado;
   },
 };

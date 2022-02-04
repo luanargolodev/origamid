@@ -1,28 +1,14 @@
-// Objetos
-// Conjunto de variáveis e funções, que são chamadas de propriedades e métodos
+// Palavra-chave this
+// this irá fazer uma referência ao próprio objeto
 
-var pessoa = {
-  nome: "Luan",
-  idade: 23,
-  possuiFaculdade: true,
-};
-
-console.log(pessoa.nome); // Luan
-console.log(pessoa.possuiFaculdade); // true
-
-// Métodos
-// É uma propriedade que possui uma função no local do seu valor
-
-var quadrado = {
-  lados: 4,
-  area(lado) {
-    return lado * lado;
-  },
-  perimetro(lado) {
-    return this.lados * lado;
+var height = 120;
+var menu = {
+  width: 800,
+  height: 50,
+  metadeHeight() {
+    return this.height / 2;
   },
 };
 
-console.log(quadrado.lados);
-console.log(quadrado.area(5));
-console.log(quadrado.perimetro(5));
+console.log(menu.metadeHeight());
+// sem o this, seria 60

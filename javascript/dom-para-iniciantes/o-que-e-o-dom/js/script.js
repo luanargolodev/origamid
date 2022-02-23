@@ -15,3 +15,26 @@ if (href === "http://127.0.0.1:5500/") {
 } else {
   console.log("Não está na página principal");
 }
+
+const titulo = document.querySelector("h1");
+const tituloClasses = titulo.classList;
+
+titulo.addEventListener("click", function () {
+  console.log("Clicou em ", titulo.innerText);
+});
+
+// Retorne o url da página atual utilizando o objeto window
+const url = window.location.href;
+console.log(url);
+
+// Seleciona o primeiro elemento da página que
+// possua a classe ativo
+const ativo = document.querySelector(".ativo");
+console.log(ativo);
+
+// Retorne a linguagem do navegador
+const linguagem = window.navigator.language;
+console.log(linguagem);
+
+// Retorne a largura da janela
+console.log(innerWidth);

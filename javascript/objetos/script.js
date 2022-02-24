@@ -1,34 +1,33 @@
-const comidas = ["Pizza", "Frango", "Carne", "Macarrão"];
-// Remova o primeiro valor de comidas e coloque em uma variável
-// Remova o último valor de comidas e coloque em uma variável
-// Adicione 'Arroz' ao final da array
-// Adicione 'Peixe' e 'Batata' ao início da array
-const primeiroValor = comidas.shift();
-const ultimoValor = comidas.pop();
-comidas.push("Arroz");
-comidas.unshift("Peixe", "Batata");
+// Crie uma função que verifique
+// corretamente o tipo de dado
+function verificarDado(dado) {
+  return Object.prototype.toString.call(dado);
+}
+console.log(verificarDado([]));
 
-const estudantes = ["Marcio", "Brenda", "Joana", "Kleber", "Julia"];
-// Arrume os estudantes em ordem alfabética
-// Inverta a ordem dos estudantes
-// Verifique se Joana faz parte dos estudantes
-// Verifique se Juliana faz parte dos estudantes
-estudantes.sort();
-estudantes.reverse();
-console.log(estudantes.includes("Joana"));
-console.log(estudantes.includes("Juliana"));
+// Crie um objeto quadrado com
+// a propriedade lados e torne
+// ela imutável
+const quadrado = {};
+Object.defineProperties(quadrado, {
+  lados: {
+    value: 4,
+    enumerable: true,
+  },
+});
+console.log(quadrado);
 
-let html = `<section>
-              <div>Sobre</div>
-              <div>Produtos</div>
-              <div>Contato</div>
-            </section>`;
-// Substitua section por ul e div com li,
-// utilizando split e join
-html = html.split("section").join("ul").split("div").join("li");
+// Previna qualquer mudança
+// no objeto abaixo
+const configuracao = {
+  width: 800,
+  height: 600,
+  background: "#333",
+};
+Object.freeze(configuracao);
 
-const carros = ["Ford", "Fiat", "VW", "Honda"];
-// Remova o último carro, mas antes de remover
-// salve a array original em outra variável
-const copiaCarros = carros.slice();
-carros.pop();
+// Liste o nome de todas
+// as propriedades do
+// protótipo de String e Array
+console.log(Object.getOwnPropertyNames(String.prototype));
+console.log(Object.getOwnPropertyNames(Array.prototype));

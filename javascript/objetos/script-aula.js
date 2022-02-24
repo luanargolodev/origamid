@@ -1,41 +1,94 @@
-const carros = ["Ford", "Fiat", "VW", "Honda"];
-carros.splice(1, 0, "Kia", "Mustang"); // Acrescenta Kia e Mustang após o primeiro e NÃO REMOVE nenhum
+const pessoa = new Object({
+  nome: "Luan",
+});
+console.log(pessoa.nome);
+
+const carro = {
+  rodas: 4,
+  init(valor) {
+    this.marca = valor;
+    return this;
+  },
+  acelerar() {
+    return this.marca + " acelerou";
+  },
+  buzinar() {
+    return this.marca + " buzinou";
+  },
+};
+
+const honda = Object.create(carro).init("Honda");
+console.log(honda.acelerar());
+
+const ferrari = Object.create(carro).init("Ferrari");
+console.log(ferrari.acelerar());
+
+const funcaoAutomovel = {
+  acelerar() {
+    return "acelerou";
+  },
+  buzinar() {
+    return "buzinou";
+  },
+};
+
+const moto = {
+  capacete: true,
+};
+
+Object.defineProperties(moto, {
+  rodas: {
+    enumerable: true,
+    get() {
+      return this._rodas;
+    },
+    set(valor) {
+      this._rodas = valor * 4;
+    },
+  },
+});
+
+console.log(moto);
+
+const innerHeightConfig = Object.getOwnPropertyDescriptor(
+  window,
+  "innerHeight"
+);
+console.log(innerHeightConfig);
+
+console.log(Object.getOwnPropertyNames(Array.prototype));
+
+// const frutas = ["Banana"];
+console.log(Object.getPrototypeOf(""));
+console.log(Array.prototype);
+
+const frutas1 = ["Banana", "Pêra"];
+const frutas2 = ["Banana", "Pêra"];
+console.log(Object.is(frutas1, frutas2));
+
+const carros = {
+  marca: "Ford",
+  ano: 2018,
+};
+carros.portas = 4;
+carros.marca = "Honda";
 console.log(carros);
+console.log(Object.isFrozen(carros));
+console.log(Object.isExtensible(carros));
+console.log(Object.isSealed(carros));
 
-// [].copyWithin(alvo, inicio, final);
-console.log(["Item1", "Item2", "Item3", "Item4", "Item5"].copyWithin(2, 0, 2));
-console.log(["Item1", "Item2", "Item3", "Item4", "Item5"].copyWithin(-1));
+const frutas3 = ["Banana", "Uva"];
+console.log(Array.prototype.isPrototypeOf(frutas3));
 
-// [].fill(valor, inicio, final);
-console.log(["Item1", "Item2", "Item3", "Item4"].fill("Banana", 0, 2));
+const frutas4 = ["Banana", "Uva"];
+const somar = function (a, b) {
+  return a + b;
+};
+const cCarros = {
+  marca: "Ford",
+};
+console.log(frutas4.toString());
+console.log(somar.toString());
+console.log(cCarros.toString());
 
-// [].concat()
-const transporte1 = ["Barco", "Avião"];
-const transporte2 = ["Carro", "Moto"];
-const transportes = transporte1.concat(transporte2);
-console.log(transportes);
-
-// [].includes(), [].indexOf(), [].lastIndexOf()
-const linguagens = ["html", "css", "js", "php", "python", "js"];
-console.log(linguagens.includes("css"));
-console.log(linguagens.includes("ruby"));
-console.log(linguagens.indexOf("python"));
-console.log(linguagens.indexOf("js"));
-console.log(linguagens.lastIndexOf("js"));
-
-// [].join()
-console.log(linguagens.join());
-console.log(linguagens.join("  "));
-console.log(linguagens.join("-_-"));
-
-let htmlString = "<h2>Título Principal</h2>";
-htmlString = htmlString.split("h2");
-console.log(htmlString);
-htmlString = htmlString.join("h1");
-console.log(htmlString);
-
-// [].slice()
-console.log(linguagens.slice(3));
-console.log(linguagens.slice(1, 4));
-const cloneLinguagens = linguagens.slice();
-console.log(cloneLinguagens);
+console.log(Object.prototype.toString.call(frutas4));

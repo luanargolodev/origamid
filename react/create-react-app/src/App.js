@@ -1,31 +1,23 @@
 import React from "react";
 
-import Footer from "./components/Footer";
-import Form from "./components/Form/Form";
-import Header from "./components/Header";
-
-const Loading = () => {
-  const active = true;
-  if (active) {
-    return <p>Carregando...</p>;
-  } else {
-    return null;
-  }
-};
-
-const Titulo = ({ cor, texto }) => {
-  return <h1 style={{ color: cor }}>{texto}</h1>;
-};
+import Header from "./Header";
+import Produtos from "./Produtos";
+import Home from "./Home";
 
 const App = () => {
+  let Pagina;
+  const { pathname } = window.location;
+
+  if (pathname === "/produtos") {
+    Pagina = Produtos;
+  } else {
+    Pagina = Home;
+  }
+
   return (
     <>
-      <Loading />
       <Header />
-      <Form />
-      <Footer />
-      <Titulo texto="Meu Primeiro Titulo" cor="grey" />
-      <Titulo texto="Meu Segundo Titulo" cor="blue" />
+      <Pagina />
     </>
   );
 };

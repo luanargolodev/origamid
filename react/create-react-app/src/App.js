@@ -1,24 +1,14 @@
-import React from "react";
-
-import Header from "./Header";
-import Produtos from "./Produtos";
-import Home from "./Home";
+import React, { useState } from "react";
 
 const App = () => {
-  let Pagina;
-  const { pathname } = window.location;
-
-  if (pathname === "/produtos") {
-    Pagina = Produtos;
-  } else {
-    Pagina = Home;
-  }
+  const [active, setActive] = useState(false);
 
   return (
-    <>
-      <Header />
-      <Pagina />
-    </>
+    <div>
+      <button onClick={() => setActive(!active)}>
+        {active ? "Botão Ativo" : "Botão Inativo"}
+      </button>
+    </div>
   );
 };
 

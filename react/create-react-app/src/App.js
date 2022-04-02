@@ -13,6 +13,10 @@ const Loading = () => {
   }
 };
 
+const Titulo = ({ cor, texto }) => {
+  return <h1 style={{ color: cor }}>{texto}</h1>;
+};
+
 const App = () => {
   return (
     <>
@@ -20,6 +24,8 @@ const App = () => {
       <Header />
       <Form />
       <Footer />
+      <Titulo texto="Meu Primeiro Titulo" cor="grey" />
+      <Titulo texto="Meu Segundo Titulo" cor="blue" />
     </>
   );
 };

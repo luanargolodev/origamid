@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
+import Modal from "./Modal";
+import ButtonModal from "./ButtonModal";
+
 const App = () => {
-  const [active, setActive] = useState(false);
+  const [modal, setModal] = useState(false);
 
   return (
     <div>
-      <button onClick={() => setActive(!active)}>
-        {active ? "Botão Ativo" : "Botão Inativo"}
-      </button>
+      <div>{modal ? "Modal aberto" : "Modal fechado"}</div>
+      <Modal modal={modal} setModal={setModal} />
+      <ButtonModal setModal={setModal} />
     </div>
   );
 };

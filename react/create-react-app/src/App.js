@@ -1,31 +1,31 @@
-import React, { useEffect, useState } from "react";
-import Produto from "./Produto";
+import React, { useRef, useState } from "react";
 
 const App = () => {
-  const [produto, setProduto] = useState(null);
-  const key = "app";
+  const [comentarios, setComentarios] = useState([]);
+  const [input, setInput] = useState("");
+  const inputElement = useRef();
 
-  function handleClick({ target }) {
-    setProduto(target.innerText);
+  function handleClick() {
+    if (input === "") return alert("Escreva algo no comentário!");
+    setComentarios([...comentarios, input]);
+    setInput("");
+    inputElement.current.focus();
   }
-
-  useEffect(() => {
-    const produtoLocal = localStorage.getItem(key);
-    if (produtoLocal !== null) setProduto(produtoLocal);
-  }, []);
-
-  useEffect(() => {
-    if (produto !== null) localStorage.setItem(key, produto);
-  }, [produto]);
 
   return (
     <div>
-      <h1>Preferência: {produto}</h1>
-      <button onClick={handleClick} style={{ marginRight: "1rem" }}>
-        Notebook
-      </button>
-      <button onClick={handleClick}>Smartphone</button>
-      <Produto produto={produto} />
+      <ul>
+        {comentarios.map((comentario) => (
+          <li key={comentario}>{comentario}</li>
+        ))}
+      </ul>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        ref={inputElement}
+      />
+      <button onClick={handleClick}>Enviar comentário</button>
     </div>
   );
 };

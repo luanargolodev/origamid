@@ -1,24 +1,32 @@
-import React from "react";
-
-import Header from "./Header";
-import Produtos from "./Produtos";
-import Home from "./Home";
+import React, { useEffect, useState } from "react";
+import Produto from "./Produto";
 
 const App = () => {
-  let Pagina;
-  const { pathname } = window.location;
+  const [produto, setProduto] = useState(null);
+  const key = "app";
 
-  if (pathname === "/produtos") {
-    Pagina = Produtos;
-  } else {
-    Pagina = Home;
+  function handleClick({ target }) {
+    setProduto(target.innerText);
   }
 
+  useEffect(() => {
+    const produtoLocal = localStorage.getItem(key);
+    if (produtoLocal !== null) setProduto(produtoLocal);
+  }, []);
+
+  useEffect(() => {
+    if (produto !== null) localStorage.setItem(key, produto);
+  }, [produto]);
+
   return (
-    <>
-      <Header />
-      <Pagina />
-    </>
+    <div>
+      <h1>Preferência: {produto}</h1>
+      <button onClick={handleClick} style={{ marginRight: "1rem" }}>
+        Notebook
+      </button>
+      <button onClick={handleClick}>Smartphone</button>
+      <Produto produto={produto} />
+    </div>
   );
 };
 

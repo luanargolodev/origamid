@@ -1,12 +1,22 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const GlobalContext = createContext();
 
 export const GlobalStorage = ({ children }) => {
-  const [contar, setContar] = useState(0);
+  const [dados, setDados] = useState(null);
+
+  useEffect(() => {
+    fetch("https://ranekapi.origamid.dev/json/api/produto/")
+      .then((response) => response.json())
+      .then((json) => setDados(json));
+  }, []);
+
+  function limparDados() {
+    setDados(null);
+  }
 
   return (
-    <GlobalContext.Provider value={{ nome: "Luan", contar, setContar }}>
+    <GlobalContext.Provider value={{ dados, limparDados }}>
       {children}
     </GlobalContext.Provider>
   );

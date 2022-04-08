@@ -1,31 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useState } from "react";
 
 const App = () => {
-  const [comentarios, setComentarios] = useState([]);
-  const [input, setInput] = useState("");
-  const inputElement = useRef();
+  const [contar, setContar] = useState(0);
 
-  function handleClick() {
-    if (input === "") return alert("Escreva algo no comentário!");
-    setComentarios([...comentarios, input]);
-    setInput("");
-    inputElement.current.focus();
-  }
+  const handleClick = useCallback(() => {
+    setContar((contar) => contar + 1);
+  }, []);
 
   return (
     <div>
-      <ul>
-        {comentarios.map((comentario) => (
-          <li key={comentario}>{comentario}</li>
-        ))}
-      </ul>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        ref={inputElement}
-      />
-      <button onClick={handleClick}>Enviar comentário</button>
+      <button onClick={handleClick}>{contar}</button>
     </div>
   );
 };

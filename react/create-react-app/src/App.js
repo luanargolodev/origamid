@@ -1,16 +1,15 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
+
+import { GlobalStorage } from "./GlobalContext";
+import Produto from "./Produto";
+import Limpar from "./Limpar";
 
 const App = () => {
-  const [contar, setContar] = useState(0);
-
-  const handleClick = useCallback(() => {
-    setContar((contar) => contar + 1);
-  }, []);
-
   return (
-    <div>
-      <button onClick={handleClick}>{contar}</button>
-    </div>
+    <GlobalStorage>
+      <Produto />
+      <Limpar />
+    </GlobalStorage>
   );
 };
 

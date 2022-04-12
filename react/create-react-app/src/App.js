@@ -1,41 +1,34 @@
-import React, { useEffect } from "react";
-import useFetch from "./hooks/useFetch";
-
-import useLocalStorage from "./hooks/useLocalStorage";
+import React, { useState } from "react";
 
 const App = () => {
-  const [produto, setProduto] = useLocalStorage("produto", "");
-  const { request, data, loading, error } = useFetch();
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
 
-  function handleClick({ target }) {
-    setProduto(target.innerText);
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert("Seu nome é " + nome + " e seu e-mail é " + email);
   }
 
-  useEffect(() => {
-    async function fetchData() {
-      const { response, json } = await request(
-        "https://ranekapi.origamid.dev/json/api/produto/"
-      );
-      console.log(response, json);
-    }
-    fetchData();
-  }, [request]);
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="nome">Nome</label>
+      <input
+        type="text"
+        id="nome"
+        value={nome}
+        onChange={(e) => setNome(e.target.value)}
+      />
 
-  if (error) return <p>{error}</p>;
-  if (loading) return <p>Carregando...</p>;
-  if (data) {
-    return (
-      <div>
-        <p>Produto preferido: {produto}</p>
-        <button onClick={handleClick}>Notebook</button>
-        <button onClick={handleClick}>Smartphone</button>
-
-        {data.map((produto) => (
-          <h1 key={produto.id}>{produto.nome}</h1>
-        ))}
-      </div>
-    );
-  } else return null;
+      <label htmlFor="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button>Enviar</button>
+    </form>
+  );
 };
 
 export default App;

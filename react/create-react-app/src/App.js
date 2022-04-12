@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
+const coresArray = ["azul", "roxo", "laranja", "verde", "vermelho", "cinza"];
+
 const App = () => {
-  const [cores, setCores] = useState([""]);
+  const [cores, setCores] = useState([]);
 
   function handleChange({ target }) {
     if (target.checked) setCores([...cores, target.value]);
@@ -10,25 +12,17 @@ const App = () => {
 
   return (
     <form>
-      <label htmlFor="termos">
-        <input
-          type="checkbox"
-          value="azul"
-          checked={cores.includes("azul")}
-          onChange={handleChange}
-        />
-        Azul
-      </label>
-
-      <label htmlFor="termos">
-        <input
-          type="checkbox"
-          value="vermelho"
-          checked={cores.includes("vermelho")}
-          onChange={handleChange}
-        />
-        Vermelho
-      </label>
+      {coresArray.map((cor, index) => (
+        <label key={index}>
+          <input
+            type="checkbox"
+            value={cor}
+            checked={cores.includes(cor)}
+            onChange={handleChange}
+          />
+          {cor.toUpperCase()}
+        </label>
+      ))}
     </form>
   );
 };

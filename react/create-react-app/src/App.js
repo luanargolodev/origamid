@@ -1,29 +1,22 @@
 import React, { useState } from "react";
-
-const coresArray = ["azul", "roxo", "laranja", "verde", "vermelho", "cinza"];
+import Input from "./components/Input";
 
 const App = () => {
-  const [cores, setCores] = useState([]);
-
-  function handleChange({ target }) {
-    if (target.checked) setCores([...cores, target.value]);
-    else setCores(cores.filter((cor) => cor !== target.value));
-  }
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
-    <form>
-      {coresArray.map((cor, index) => (
-        <label key={index}>
-          <input
-            type="checkbox"
-            value={cor}
-            checked={cores.includes(cor)}
-            onChange={handleChange}
-          />
-          {cor.toUpperCase()}
-        </label>
-      ))}
-    </form>
+    <div>
+      <Input id="nome" label="Nome" value={nome} setValue={setNome} />
+      <Input id="email" label="Email" value={email} setValue={setEmail} />
+      <Input
+        id="password"
+        label="Senha"
+        value={password}
+        setValue={setPassword}
+      />
+    </div>
   );
 };
 

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const App = () => {
   const [textarea, setTextarea] = useState("");
   const [select, setSelect] = useState("");
+  const [produto, setProduto] = useState("");
   const [form, setForm] = useState({
     nome: "",
     email: "",
@@ -16,6 +17,10 @@ const App = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
+  }
+
+  function handleChangeRadio({ target }) {
+    setProduto(target.value);
   }
 
   return (
@@ -46,6 +51,27 @@ const App = () => {
         <option value="tablet">Tablet</option>
       </select>
       {select}
+
+      <label>
+        <input
+          type="radio"
+          name="produto"
+          value="smartphone"
+          checked={produto === "smartphone"}
+          onChange={handleChangeRadio}
+        />
+        Smartphone
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="produto"
+          value="notebook"
+          checked={produto === "notebook"}
+          onChange={handleChangeRadio}
+        />
+        Notebook
+      </label>
 
       <label htmlFor="mensagem">Mensagem</label>
       <textarea

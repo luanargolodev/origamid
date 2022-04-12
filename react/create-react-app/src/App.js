@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const App = () => {
   const [textarea, setTextarea] = useState("");
-
+  const [select, setSelect] = useState("");
   const [form, setForm] = useState({
     nome: "",
     email: "",
@@ -30,6 +30,22 @@ const App = () => {
         value={form.email}
         onChange={handleChange}
       />
+
+      <label htmlFor="produtos">Produtos</label>
+      <select
+        name="produtos"
+        id="produtos"
+        value={select}
+        onChange={({ target }) => setSelect(target.value)}
+      >
+        <option disabled value="">
+          Selecione
+        </option>
+        <option value="notebook">Notebook</option>
+        <option value="smartphone">Smartphone</option>
+        <option value="tablet">Tablet</option>
+      </select>
+      {select}
 
       <label htmlFor="mensagem">Mensagem</label>
       <textarea

@@ -1,45 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
+
 import Input from "./components/Input";
-import Radio from "./components/Radio";
-import Select from "./components/Select";
-import Checkbox from "./components/Checkbox";
+import useForm from "./hooks/useForm";
 
 const App = () => {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [produto, setProduto] = useState("");
-  const [cor, setCor] = useState("");
-  const [frutas, setFrutas] = useState("");
-  const [linguagens, setLinguagens] = useState([]);
+  const cep = useForm("cep");
+  const email = useForm("email");
+  const nome = useForm();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (cep.validate() && email.validate() && nome.validate()) {
+      console.log("Enviou");
+    } else {
+      console.log("Não enviou");
+    }
+  }
 
   return (
-    <form>
-      <h2>Checkbox</h2>
-      <Checkbox
-        options={["JavaScript", "PHP", "Ruby"]}
-        value={linguagens}
-        setValue={setLinguagens}
-      />
+    <>
+      <form onSubmit={handleSubmit}>
+        <Input type="text" label="Nome" id="nome" {...nome} />
 
-      <h2>Cores</h2>
-      <Radio options={["Azul", "Vermelho"]} value={cor} setValue={setCor} />
+        <Input
+          label="CEP"
+          type="text"
+          id="cep"
+          placeholder="000000-000"
+          {...cep}
+        />
 
-      <h2>Frutas</h2>
-      <Radio
-        options={["Limão", "Laranja", "Uva"]}
-        value={frutas}
-        setValue={setFrutas}
-      />
+        <Input label="E-mail" type="email" id="email" {...email} />
 
-      <Select
-        options={["Celular", "Tablet"]}
-        value={produto}
-        setValue={setProduto}
-      />
-
-      <Input id="nome" label="Nome" value={nome} setValue={setNome} />
-      <Input id="email" label="Email" value={email} setValue={setEmail} />
-    </form>
+        <button>Enviar</button>
+      </form>
+    </>
   );
 };
 

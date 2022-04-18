@@ -1,16 +1,26 @@
 import React from 'react';
-
-import Card from 'react-bootstrap/Card';
+import Slide from './components/Slide';
 
 const App = () => {
+  const slides = [
+    {
+      id: 'slide1',
+      text: 'Slide 1',
+    },
+    {
+      id: 'slide2',
+      text: 'Slide 2',
+    },
+    {
+      id: 'slide3',
+      text: 'Slide 3',
+    },
+  ];
+
   return (
-    <Card bg="dark" text="white" className="m-5" style={{ maxWidth: '18rem' }}>
-      <Card.Header>Notebook</Card.Header>
-      <Card.Body>
-        <Card.Title>R$ 2500</Card.Title>
-        <Card.Text>Esse é um notebook padrão</Card.Text>
-      </Card.Body>
-    </Card>
+    <div>
+      <Slide slides={slides} />
+    </div>
   );
 };
 

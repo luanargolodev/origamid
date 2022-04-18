@@ -1,13 +1,10 @@
 import React from 'react';
-
-import './App.css';
-import Title from './components/Title';
+import Produto from './components/Produto';
 
 const App = () => {
   return (
-    <div className="container">
-      Import CSS
-      <Title />
+    <div>
+      <Produto />
     </div>
   );
 };

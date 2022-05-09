@@ -8,6 +8,11 @@
     <script src="./redux.min.js"></script>
   </head>
   <body>
+    <div>
+      <h1>Total: <span id="total"></span></h1>
+      <button id="button">Incrementar</button>
+    </div>
+
     <script>
       // Constantes
       const INCREMENTAR = 'incrementar';
@@ -34,14 +39,24 @@
       }
 
       const store = Redux.createStore(reducer);
-      let state = store.getState();
-      console.log(state);
 
-      store.dispatch(somar(5));
-      store.dispatch(incrementar());
-      state = store.getState();
+      function render() {
+        const state = store.getState();
+        const total = document.getElementById('total');
+        total.innerText = state;
+      }
+      render();
 
-      console.log(state);
+      const unsubscribe = store.subscribe(render);
+      store.dispatch(somar(25));
+      unsubscribe();
+
+      store.subscribe(() => {
+        console.log('Aconteceu');
+      });
+
+      const button = document.getElementById('button');
+      button.addEventListener('click', () => store.dispatch(incrementar()));
     </script>
   </body>
 </html>

@@ -9,34 +9,17 @@
   </head>
   <body>
     <div>
-      <h1>Total: <span id="total"></span></h1>
-      <button id="button">Incrementar</button>
-      <button id="abrir">Abrir</button>
-      <button id="fechar">Fechar</button>
+      <div id="caixa" style="background: blue; height: 50px"></div>
     </div>
 
     <script>
-      // Constantes
-      const INCREMENTAR = 'incrementar';
-      const SOMAR = 'somar';
-
-      // Action Creator
-      function somar(payload) {
-        return { type: SOMAR, payload };
-      }
-
-      function incrementar() {
-        return { type: INCREMENTAR };
-      }
-
-      const initialState = 0;
-      function contador(state = initialState, action) {
+      function reducer(state = 0, action) {
         switch (action.type) {
-          case INCREMENTAR: {
-            return state + 1;
-          }
-          case SOMAR: {
-            return state + action.payload;
+          case 'MODIFICAR_WIDTH': {
+            // const caixa = document.getElementById('caixa');
+            // caixa.style.width = `${action.payload}px`;
+
+            return action.payload;
           }
           default: {
             return state;
@@ -44,46 +27,23 @@
         }
       }
 
-      function modal(state = true, action) {
-        switch (action.type) {
-          case 'ABRIR': {
-            return true;
-          }
-          case 'FECHAR': {
-            return false;
-          }
-          default: {
-            return state;
-          }
-        }
-      }
-
-      const reducer = Redux.combineReducers({ contador, modal });
-      const store = Redux.createStore(reducer);
-
-      function render() {
-        const { contador, modal } = store.getState();
-        const total = document.getElementById('total');
-        total.innerText = contador;
-        if (modal) {
-          total.style.display = 'inline-block';
-        } else {
-          total.style.display = 'none';
-        }
-      }
-      render();
-
-      store.subscribe(render);
-
-      const button = document.getElementById('button');
-      button.addEventListener('click', () => store.dispatch(incrementar()));
-
-      const abrir = document.getElementById('abrir');
-      abrir.addEventListener('click', () => store.dispatch({ type: 'ABRIR' }));
-      const fechar = document.getElementById('fechar');
-      fechar.addEventListener('click', () =>
-        store.dispatch({ type: 'FECHAR' }),
+      const store = Redux.createStore(
+        reducer,
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__(),
       );
+      function render() {
+        // Efeito colateral no render
+        const caixa = document.getElementById('caixa');
+        caixa.style.width = `${store.getState()}px`;
+      }
+      store.subscribe(render);
+      store.dispatch({ type: 'MODIFICAR_WIDTH', payload: 100 });
+      store.dispatch({ type: 'MODIFICAR_WIDTH', payload: 20 });
+      store.dispatch({ type: 'MODIFICAR_WIDTH', payload: 30 });
+      store.dispatch({ type: 'MODIFICAR_WIDTH', payload: 200 });
+
+      console.log(store.getState());
     </script>
   </body>
 </html>

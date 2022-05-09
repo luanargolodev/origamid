@@ -9,76 +9,15 @@
     <script src="./redux.min.js"></script>
   </head>
   <body>
-    <div>
-      <div id="caixa" style="background: blue; height: 50px"></div>
-    </div>
+    <script type="module">
+      import store from './store/configureStore.js';
+      import { incrementar } from './store/contador.js';
 
-    <script>
-      const array1 = [0, 1, 2, 3, 4];
-      const array2 = array1.filter((item) => true);
-
-      const obj1 = {
-        nome: 'Luan',
-        idade: 23,
-      };
-
-      // Clonando obj1
-      const obj2 = immer.produce(obj1, (draft) => {
-        draft.idade = 35;
+      store.subscribe(() => {
+        console.log('Funcionou');
       });
 
-      const initialState = {
-        nome: 'Luan',
-        sobre: {
-          dados: {
-            idade: 23,
-          },
-        },
-      };
-
-      // const reducer = immer.produce((state, action) => {
-      //   switch (action.type) {
-      //     case 'MUDAR_NOME': {
-      //       state.nome = action.payload;
-      //       break;
-      //     }
-      //     case 'MUDAR_IDADE': {
-      //       state.sobre.dados.idade = action.payload;
-      //       break;
-      //     }
-      //   }
-      // }, initialState);
-
-      const reducer = (state = initialState, action) => {
-        switch (action.type) {
-          case 'MUDAR_NOME': {
-            return { ...state, nome: action.payload };
-          }
-          case 'MUDAR_IDADE': {
-            state.sobre.dados.idade = action.payload;
-            return {
-              ...state,
-              sobre: { ...state.sobre },
-              dados: { ...state.sobre.dados, idade: action.payload },
-            };
-          }
-          default: {
-            return state;
-          }
-        }
-      };
-
-      const store = Redux.createStore(
-        reducer,
-        window.__REDUX_DEVTOOLS_EXTENSION__ &&
-          window.__REDUX_DEVTOOLS_EXTENSION__(),
-      );
-
-      store.dispatch({ type: 'MUDAR_NOME', payload: 'Argolo' });
-      store.dispatch({ type: 'MUDAR_NOME', payload: 'Lemos' });
-      store.dispatch({ type: 'MUDAR_NOME', payload: 'João' });
-      store.dispatch({ type: 'MUDAR_IDADE', payload: 15 });
-      store.dispatch({ type: 'MUDAR_IDADE', payload: 30 });
+      store.dispatch(incrementar());
     </script>
   </body>
 </html>

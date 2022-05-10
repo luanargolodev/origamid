@@ -9,36 +9,12 @@
     <script src="./redux.min.js"></script>
   </head>
   <body>
-    <h1 id="aulas"></h1>
-    <h1 id="aluno"></h1>
-
-    <script type="module">
-      import store from './store/configureStore.js';
-      import {
-        incrementarTempo,
-        reduzirTempo,
-        modificarEmail,
-      } from './store/aluno.js';
-      import {
-        completarAula,
-        completarCurso,
-        resetarCurso,
-      } from './store/aulas.js';
-
-      function render() {
-        const { aluno, aulas } = store.getState();
-        const aulasEl = document.getElementById('aulas');
-        const alunoEl = document.getElementById('aluno');
-
-        alunoEl.innerText = `${aluno.nome} - ${aluno.email} - ${aluno.diasRestantes} dias`;
-        aulasEl.innerText = aulas.filter(
-          (aula) => aula.completa === true,
-        ).length;
-      }
-      render();
-      store.subscribe(render);
-
-      store.dispatch(completarCurso());
-    </script>
+    <ul>
+      <li id="item1" data-slide="1">Item 1</li>
+      <li id="item2" data-slide="2">Item 2</li>
+      <li id="item3" data-slide="3">Item 3</li>
+      <li id="item4" data-slide="4">Item 4</li>
+    </ul>
+    <script src="./script.js"></script>
   </body>
 </html>

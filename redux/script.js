@@ -1,16 +1,43 @@
-const li = Array.from(document.querySelectorAll('li'));
+function reducer(state = 0, action) {
+  switch (action.type) {
+    case 'INCREMENTAR': {
+      return state + 1;
+    }
+    case 'REDUZIR': {
+      return state - 1;
+    }
+    default: {
+      return state;
+    }
+  }
+}
 
-const getElementAttr = (key) => {
-  return function (el) {
-    return el.getAttribute(key);
-  };
+const logger = (store) => (next) => (action) => {
+  console.group(action.type);
+  console.log('ACTION', action);
+  console.log('PREV_STATE', store.getState());
+  const result = next(action);
+  console.log('NEW_STATE', store.getState());
+  console.groupEnd();
+  return result;
 };
 
-const getAttrDataSlide = getElementAttr('data-slide');
-const getAttrId = getElementAttr('id');
+const reduzirMiddle = (store) => (next) => (action) => {
+  if (action.type === 'REDUZIR') {
+    alert('REDUZIR executado');
+  }
+  return next(action);
+};
 
-const dataSlideList = li.map(getAttrDataSlide);
-const idList = li.map(getAttrId);
+const { applyMiddleware, compose } = Redux;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const enhancer = composeEnhancers(applyMiddleware(logger, reduzirMiddle));
 
-console.log(dataSlideList);
-console.log(idList);
+const store = Redux.createStore(reducer, enhancer);
+console.log(store.getState());
+
+store.dispatch({ type: 'INCREMENTAR' });
+store.dispatch({ type: 'INCREMENTAR' });
+store.dispatch({ type: 'INCREMENTAR' });
+store.dispatch({ type: 'INCREMENTAR' });
+store.dispatch({ type: 'REDUZIR' });
